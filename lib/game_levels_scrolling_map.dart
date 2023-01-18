@@ -274,14 +274,13 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
     for (int i = 0; i < widget.points!.length; i++) {
       //widget.points!.add(PointModel(100, testWidget(i)));
       if (widget.x_values!.length > i) {
-        // var x = (widget.x_values![i] * maxWidth / imageWidth) +
-        //     widget.pointsPositionDeltaX!;
-        var x = (widget.x_values![i]) +
+        var x = (widget.x_values![i] / imageWidth) +
             widget.pointsPositionDeltaX!;
+
         // x = x - (widget.points![i].width! / 2);
         newX_values!.add((x - halfScreenSize).abs());
 
-        var y = ((widget.y_values![i]) +
+        var y = ((widget.y_values![i] / imageHeight) +
             widget.pointsPositionDeltaY!);
         // if (widget.points![i].isCurrent! && widget.currentPointDeltaY != null) {
         //   y = y - widget.currentPointDeltaY!;

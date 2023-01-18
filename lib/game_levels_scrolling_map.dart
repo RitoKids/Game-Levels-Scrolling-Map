@@ -277,15 +277,15 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
         var x = (widget.x_values![i] * maxWidth / imageWidth) +
             widget.pointsPositionDeltaX!;
 
-        x = x - (widget.points![i].width! / 2);
+        // x = x - (widget.points![i].width! / 2);
         newX_values!.add((x - halfScreenSize).abs());
 
         var y = ((widget.y_values![i] * maxHeight / imageHeight) +
             widget.pointsPositionDeltaY!);
-        if (widget.points![i].isCurrent! && widget.currentPointDeltaY != null) {
-          y = y - widget.currentPointDeltaY!;
-        }
-        y = y - (widget.points![i].width! / 2);
+        // if (widget.points![i].isCurrent! && widget.currentPointDeltaY != null) {
+        //   y = y - widget.currentPointDeltaY!;
+        // }
+        // y = y - (widget.points![i].width! / 2);
 
         print(
             "${Q.TAG} old x,y : ${widget.x_values![i]},${widget

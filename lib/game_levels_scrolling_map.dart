@@ -274,22 +274,22 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
     for (int i = 0; i < widget.points!.length; i++) {
       //widget.points!.add(PointModel(100, testWidget(i)));
       if (widget.x_values!.length > i) {
-        var x = (widget.x_values![i]) +
+        var x = (widget.x_values![i] * maxWidth / imageWidth) +
             widget.pointsPositionDeltaX!;
 
-        // x = x - (widget.points![i].width! / 2);
+        x = x - (widget.points![i].width! / 2);
         newX_values!.add((x - halfScreenSize).abs());
 
-        var y = ((widget.y_values![i]) +
+        var y = ((widget.y_values![i] * maxHeight / imageHeight) +
             widget.pointsPositionDeltaY!);
-        // if (widget.points![i].isCurrent! && widget.currentPointDeltaY != null) {
-        //   y = y - widget.currentPointDeltaY!;
-        // }
-        // y = y - (widget.points![i].width! / 2);
+        if (widget.points![i].isCurrent! && widget.currentPointDeltaY != null) {
+          y = y - widget.currentPointDeltaY!;
+        }
+        y = y - (widget.points![i].width! / 2);
 
-        // print(
-        //     "${Q.TAG} old x,y : ${widget.x_values![i]},${widget
-        //         .y_values![i]} ## new x,y : $x,$y");
+        print(
+            "${Q.TAG} old x,y : ${widget.x_values![i]},${widget
+                .y_values![i]} ## new x,y : $x,$y");
         widgets.add(pointWidget(x, y, child: widget.points![i].child));
       } else {
         break;

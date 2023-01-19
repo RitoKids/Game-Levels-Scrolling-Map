@@ -5,6 +5,7 @@ homepage: https://github.com/MohamedSayed9392/Game-Levels-Scrolling-Map
 version: 0.0.1
 
 dependencies:
+  platform: ^3.1.0
   game_levels_scrolling_map:
     path: ../
   flutter:

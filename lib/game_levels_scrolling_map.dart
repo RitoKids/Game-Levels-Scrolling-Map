@@ -21,6 +21,7 @@ class GameLevelsScrollingMap extends StatefulWidget {
   double? currentPointDeltaY;
   String imageUrl;
   String? svgUrl = "";
+  Color? color = Colors.black;
 
   List<double>? x_values = [];
   List<double>? y_values = [];
@@ -49,6 +50,7 @@ class GameLevelsScrollingMap extends StatefulWidget {
     this.pointsPositionDeltaY,
     this.currentPointDeltaY,
     this.backgroundImageWidget,
+    this.color,
     Key? key,
   }) : super(key: key);
 
@@ -147,7 +149,7 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
     return Container(
         alignment: Alignment.center,
         key: widget.key ?? _key,
-        color: Colors.red,
+        color: widget.color,
         width: widget.width != 0 ? widget.width : maxWidth,
         height: maxHeight,
         child: widget.isScrollable

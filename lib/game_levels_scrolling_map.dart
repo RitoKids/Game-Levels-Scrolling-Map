@@ -115,7 +115,7 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
         .size
         .height;
 
-    print("${Q.TAG} Device Dimensions : ${Q.deviceWidth} x ${Q.deviceHeight}");
+    // print("${Q.TAG} Device Dimensions : ${Q.deviceWidth} x ${Q.deviceHeight}");
   }
 
   void initDefaults() {
@@ -137,7 +137,7 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
       widget.width = Q.deviceWidth;
     }
 
-    print("widget.height : ${widget.height}");
+    // print("widget.height : ${widget.height}");
   }
 
   final _scrollController = ScrollController();
@@ -217,8 +217,8 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
     imageWidth = widget.imageWidth ?? image!.width.toDouble();
     imageHeight = widget.imageHeight ?? image!.height.toDouble();
 
-    print("${Q.TAG} image path : ${widget.imageUrl}");
-    print("${Q.TAG} image dimensions : $imageWidth x $imageHeight");
+    // print("${Q.TAG} image path : ${widget.imageUrl}");
+    // print("${Q.TAG} image dimensions : $imageWidth x $imageHeight");
 
     aspectRatio = imageWidth / imageHeight;
 
@@ -235,12 +235,12 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
       maxHeight = maxWidth / aspectRatio;
     }
 
-    print(
-        "${Q
-            .TAG} image all dimensions : $imageWidth : $imageHeight : $aspectRatio");
-    print(
-        "${Q
-            .TAG} image new dimensions : $maxWidth : $maxHeight : $aspectRatio");
+    // print(
+    //     "${Q
+    //         .TAG} image all dimensions : $imageWidth : $imageHeight : $aspectRatio");
+    // print(
+    //     "${Q
+    //         .TAG} image new dimensions : $maxWidth : $maxHeight : $aspectRatio");
 
     widgets.add(backgroundImage());
     drawPoints();
@@ -270,8 +270,8 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
         .of(context)
         .size
         .width) / 2;
-    print("${Q.TAG} maxWidth / imageWidth : ${maxWidth / imageWidth}");
-    print("${Q.TAG} maxHeight / imageHeight : ${maxHeight / imageHeight}");
+    // print("${Q.TAG} maxWidth / imageWidth : ${maxWidth / imageWidth}");
+    // print("${Q.TAG} maxHeight / imageHeight : ${maxHeight / imageHeight}");
 
     for (int i = 0; i < widget.points!.length; i++) {
       //widget.points!.add(PointModel(100, testWidget(i)));
@@ -289,9 +289,9 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
         }
         y = y - (widget.points![i].width! / 2);
 
-        print(
-            "${Q.TAG} old x,y : ${widget.x_values![i]},${widget
-                .y_values![i]} ## new x,y : $x,$y");
+        // print(
+        //     "${Q.TAG} old x,y : ${widget.x_values![i]},${widget
+        //         .y_values![i]} ## new x,y : $x,$y");
         widgets.add(pointWidget(x, y, child: widget.points![i].child));
       } else {
         break;
@@ -308,7 +308,7 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
   Future _getPathFromSVG() async {
     await getPointsPathFromXML().then((value) {
       _pathSVG = value.replaceAll(",", " ");
-      print("pathSVG : $_pathSVG");
+      // print("pathSVG : $_pathSVG");
       List<String> arrayOfPoints = _pathSVG!.split(" ");
       for (int i = 0; i < arrayOfPoints.length; i++) {
         if (i % 2 == 0) {

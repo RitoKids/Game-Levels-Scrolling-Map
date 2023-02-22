@@ -105,6 +105,13 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
     });
   }
 
+  @override
+  void setState(VoidCallback fn) {
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
+
   void initDeviceDimensions() {
     Q.deviceWidth = MediaQuery
         .of(context)

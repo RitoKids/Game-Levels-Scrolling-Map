@@ -266,7 +266,7 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
       width: maxWidth,
       child: imageWidth != 0
           ? widget.backgroundImageWidget ?? (widget.imageUrl.contains("assets")
-          ? Image.asset(widget.imageUrl, fit: BoxFit.fill,filterQuality: FilterQuality.high, cacheHeight: 9678, cacheWidth: 1620,)
+          ? Image.asset(widget.imageUrl, fit: BoxFit.fill,filterQuality: FilterQuality.high)
           : Image.network(widget.imageUrl, fit: BoxFit.fill,filterQuality: FilterQuality.high))
           : const LoadingProgress(),
     );

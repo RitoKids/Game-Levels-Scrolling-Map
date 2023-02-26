@@ -162,6 +162,7 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
         child: widget.isScrollable
             ? SingleChildScrollView(
           controller: _scrollController,
+          physics: const ClampingScrollPhysics(),
           scrollDirection: widget.direction ?? Axis.horizontal,
           reverse: widget.reverseScrolling ?? false,
           child: aspectRatioWidget(),

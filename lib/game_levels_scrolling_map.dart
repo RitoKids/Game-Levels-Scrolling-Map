@@ -76,14 +76,18 @@ class GameLevelsScrollingMap extends StatefulWidget {
 
   @override
   _GameLevelsScrollingMapState createState() => _GameLevelsScrollingMapState();
+
+
 }
 
 class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
   List<double>? newX_values = [];
+  late Image backImage;
 
   @override
   void initState() {
     super.initState();
+    backImage = Image.asset(widget.imageUrl, fit: BoxFit.fill,filterQuality: FilterQuality.high);
 
     WidgetsBinding.instance!.addPostFrameCallback((_) async {
       initDeviceDimensions();
@@ -103,6 +107,13 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
         }
       }
     });
+  }
+
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(backImage.image, context);
   }
 
   @override
@@ -267,7 +278,7 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
       width: maxWidth,
       child: imageWidth != 0
           ? widget.backgroundImageWidget ?? (widget.imageUrl.contains("assets")
-          ? Image.asset(widget.imageUrl, fit: BoxFit.fill,filterQuality: FilterQuality.high)
+          ? backImage
           : Image.network(widget.imageUrl, fit: BoxFit.fill,filterQuality: FilterQuality.high))
           : const LoadingProgress(),
     );

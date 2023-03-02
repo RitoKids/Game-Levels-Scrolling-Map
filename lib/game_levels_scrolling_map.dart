@@ -34,6 +34,7 @@ class GameLevelsScrollingMap extends StatefulWidget {
   bool isScrollable = false;
   Axis? direction = Axis.horizontal;
   bool? reverseScrolling = false;
+  BuildContext parentContext;
 
   Widget? backgroundImageWidget;
 
@@ -46,6 +47,7 @@ class GameLevelsScrollingMap extends StatefulWidget {
     this.points,
     this.x_values,
     this.y_values,
+    required this.parentContext,
     this.pointsPositionDeltaX,
     this.pointsPositionDeltaY,
     this.currentPointDeltaY,
@@ -59,6 +61,7 @@ class GameLevelsScrollingMap extends StatefulWidget {
     this.height,
     this.imageWidth,
     this.imageHeight,
+    required this.parentContext,
     this.direction,
     this.currentPointDeltaY,
     this.svgUrl,
@@ -109,13 +112,6 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
     });
   }
 
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    precacheImage(backImage.image, context);
-  }
-
   @override
   void setState(VoidCallback fn) {
     if (mounted) {
@@ -125,11 +121,11 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
 
   void initDeviceDimensions() {
     Q.deviceWidth = MediaQuery
-        .of(context)
+        .of(widget.parentContext)
         .size
         .width;
     Q.deviceHeight = MediaQuery
-        .of(context)
+        .of(widget.parentContext)
         .size
         .height;
 
@@ -286,7 +282,7 @@ class _GameLevelsScrollingMapState extends State<GameLevelsScrollingMap> {
 
   void drawPoints() {
     double halfScreenSize = (MediaQuery
-        .of(context)
+        .of(widget.parentContext)
         .size
         .width) / 2;
     // print("${Q.TAG} maxWidth / imageWidth : ${maxWidth / imageWidth}");

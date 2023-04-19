@@ -17,6 +17,7 @@ class _MapHorizontalExampleState extends State<MapHorizontalExample> {
           child: GameLevelsScrollingMap.scrollable(
         imageUrl: "assets/drawable/map_horizontal.png",
         svgUrl: "assets/svg/map_horizontal.svg",
+            deviceSize: MediaQuery.of(context).size,
         points: points,
       )), // This trailing comma makes auto-formatting nicer for build methods.
     );

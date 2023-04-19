@@ -23,7 +23,7 @@ class _MapVerticalExampleState extends State<MapVerticalExample> {
             pointsPositionDeltaX: 25,
             pointsPositionDeltaY: 25,
             svgUrl: 'assets/svg/map_vertical.svg',
-            points: points,)
+            points: points, deviceSize: MediaQuery.of(context).size,)
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
